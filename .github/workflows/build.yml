@@ -1,0 +1,22 @@
+name: Build
+
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openssl libssl-dev
+      - name: build
+        run: |
+          cargo build --release

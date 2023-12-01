@@ -1,0 +1,94 @@
+[package]
+name = "jwt-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-graphql-axum = "6.0.11"
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.34.0", features = ["full"] }
+tower-http = { version = "0.4", features = ["trace", "cors"] }
+thiserror = "1.0"
+url = "2.5"
+sha2 = "0.10"
+
+dotenvy = "0.15.7"
+
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+jwt-simple = "0.11"
+
+serde_json = "1.0"
+
+async-trait = "0.1"
+once_cell = "1.18.0"
+slab = { version = "0.4.9", features = ["serde"] }
+futures = { version = "0.3", features = ["io-compat"] }
+scopeguard = "1.2.0"
+
+itertools = "0.12"
+cron = "0.12"
+
+bytes = { version = "1.5", features = ["serde"] }
+
+sentry = { version = "0.31", features = ["tower", "debug-images"] }
+sentry-tracing = "0.31"
+sentry-tower = { version = "0.31", features = ["http"] }
+
+lettre = { version = "0.11.2", features = [
+  "tokio1-native-tls",
+  "tracing",
+  "smtp-transport",
+  "file-transport",
+] }
+
+askama = { version = "0.12.1", features = ["with-axum", "serde", "serde-json"] }
+askama_axum = { version = "0.3.0", features = [
+  "humansize",
+  "serde-json",
+  "urlencode",
+] }
+passwords = { version = "3.1.16", features = ["rand"] }
+
+reqwest = { version = "0.11", features = [
+  "tokio-native-tls",
+  "stream",
+  "multipart",
+] }
+
+redis = { version = "0.23.3", features = ["tokio-comp", "serde", "serde_json"] }
+redis-macros = "0.2.1"
+
+tempfile = "3.8.1"
+csv-async = { version = "1.2.6", features = ["tokio"] }
+
+regex = "1.10.2"
+mime_guess = "2.0.4"
+
+[dependencies.axum]
+version = "0.6.20"
+features = ["ws", "headers", "http2", "macros", "multipart", "json"]
+
+[dependencies.axum-extra]
+version = "0.8.0"
+features = ["cookie", "cookie-private", "form", "multipart"]
+
+[dependencies.async-graphql]
+version = "6.0"
+features = ["chrono", "chrono-tz", "dataloader", "log", "string_number"]
+
+[dependencies.sqlx]
+version = "0.7"
+features = ["runtime-tokio", "tls-native-tls", "postgres", "json", "chrono"]
+
+[dev-dependencies]
+pretty_assertions = "1.4"
+
+tower = "0.4"
+http-body = "0.4"
+hyper = "0.14"
+hyper-multipart-rfc7578 = "0.8"
